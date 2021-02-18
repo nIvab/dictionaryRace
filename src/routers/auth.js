@@ -1,19 +1,19 @@
-const { Router } = require("express");
+const { express } = require("express");
 const { json: jsonParser } = require("body-parser");
 const passport = require("passport");
 
-const router = Router();
+const app = express();
 
-router.get(
+app.get(
     "/local",
     jsonParser(),
     passport.authenticate("local"),
     async (req, res) => res.json("ok")
 );
 
-router.get("/logout", async (req, res) => {
+app.get("/logout", async (req, res) => {
     req.logOut();
     res.redirect("/");
 });
 
-module.exports = router;
+module.exports = app;

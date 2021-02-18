@@ -1,9 +1,9 @@
-const { Router } = require("express");
+const { express } = require("express");
 const passport = require("passport");
 
-const router = Router();
+const app = express();
 
-router.get("/me", async (res, req) => {
+app.get("/me", async (res, req) => {
     if (req.isAuthenticated()) {
         res.json(req.user);
     } else {
@@ -11,4 +11,4 @@ router.get("/me", async (res, req) => {
     }
 });
 
-module.exports = router;
+module.exports = app;

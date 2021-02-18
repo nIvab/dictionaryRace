@@ -10,7 +10,12 @@ const userSchema = new Schema({
     email: { type: String, unique: true },
     passwordHash: String,
     provider: { type: String, default: "local" },
-    runs: [[]],
+    runs: [
+        {
+            words: [String],
+            timeTaken: Number,
+        },
+    ],
 });
 
 module.exports = model("User", userSchema);
