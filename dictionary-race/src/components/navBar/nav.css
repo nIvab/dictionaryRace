@@ -1,5 +1,17 @@
 .navBar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: whitesmoke;
+    filter: drop-shadow(0 10px 40px rgb(209, 209, 209));
+    border-radius: 20px;
+    width: 100%;
+    top: 0px;
+}
+
+.links {
+    font-family: "Nunito Sans", sans-serif;
+    color: #888888;
+    text-decoration: none;
 }
