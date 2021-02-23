@@ -8,7 +8,7 @@ const Play = () => {
             className="Play"
             initial="initial"
             animate="in"
-            exit="in"
+            exit="out"
             variants={pageVariants}
             transition={pageTransition}
         >

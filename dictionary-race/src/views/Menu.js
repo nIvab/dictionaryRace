@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import pageVariants, { pageTransition } from "../utilities/pageVariants";
+import pageVariants, {
+    pageTransition,
+    childVariants,
+} from "../utilities/pageVariants";
 
 const Menu = () => {
     return (
@@ -8,11 +11,12 @@ const Menu = () => {
             className="Menu"
             initial="initial"
             animate="in"
-            exit="in"
+            exit="out"
             variants={pageVariants}
             transition={pageTransition}
         >
-            Menu Stuff!
+            <motion.div variants={childVariants}>Menu1</motion.div>
+            <motion.div variants={childVariants}>Menu2</motion.div>
         </motion.div>
     );
 };

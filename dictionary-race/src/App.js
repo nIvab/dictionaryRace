@@ -18,7 +18,7 @@ const App = () => {
     return (
         <>
             <Nav />
-            <AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.pathname}>
                     <Route path="/" exact component={Play} />
                     <Route path="/menu" component={Menu} />
