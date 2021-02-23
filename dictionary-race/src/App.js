@@ -15,6 +15,7 @@ import SignIn from "./views/SignIn";
 
 const App = () => {
     const location = useLocation();
+
     return (
         <>
             <Nav />

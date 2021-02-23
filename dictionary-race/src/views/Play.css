@@ -1,0 +1,57 @@
+.inputCard {
+    background-color: whitesmoke;
+    display: inline;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    border: none;
+    line-height: 25px;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.typed {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+#submit {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 5%;
+    background-color: #ccffe3;
+    font-family: "Yantramanav";
+    font-size: 20px;
+    color: #888888;
+}
+
+h3 {
+    margin: auto;
+    margin-top: 5%;
+    font-family: "Yantramanav";
+}
+
+h2 {
+    font-family: "Yantramanav";
+    margin-left: 50%;
+    margin-top: 50px;
+    letter-spacing: 0.05em;
+    font-weight: 100;
+}
+
+.Play {
+    margin: auto;
+}
