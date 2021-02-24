@@ -12,6 +12,7 @@ import Menu from "./views/Menu";
 import Play from "./views/Play";
 import SearchMenu from "./views/SearchMenu";
 import SignIn from "./views/SignIn";
+import HowToPlay from "./views/HowToPlay";
 
 const App = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path="/" exact component={Play} />
                     <Route path="/menu" component={Menu} />
                     <Route path="/search-menu" component={SearchMenu} />
+                    <Route path="/how-to-play" component={HowToPlay} />
                     <Route path="/sign-in" component={SignIn} />
                 </Switch>
             </AnimatePresence>

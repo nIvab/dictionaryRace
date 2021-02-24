@@ -12,6 +12,9 @@ const Nav = () => {
                 Menu
             </Link>
 
+            <Link className="links" to="/how-to-play">
+                How to Play
+            </Link>
             <Link className="links" to="/sign-in">
                 Sign-in
             </Link>

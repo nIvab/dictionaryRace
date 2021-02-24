@@ -39,52 +39,53 @@ const Play = () => {
                 variants={pageVariants}
                 transition={pageTransition}
             >
-                <h2>Play</h2>
+                <h1>Play</h1>
                 <CircleThingy text={"Hello!"} />
-            </motion.div>
-            <motion.div
-                className="inputCard"
-                initial="initial"
-                animate="in"
-                exit="out"
-                variants={cardVariants}
-                transition={pageTransition}
-            >
-                <motion.form onSubmit={handleSubmit(onSubmit)}>
-                    <h3>Enter Inital Word</h3>
-                    <motion.input
-                        name="initalWord"
-                        ref={register}
-                        placeholder="Inital"
-                        className="typed"
-                    />
-                    <h3>Enter Final Word</h3>
-                    <motion.input
-                        name="finalWord"
-                        ref={register}
-                        placeholder="Final"
-                        className="typed"
-                    />
 
-                    <motion.input type="submit" id="submit" value="Begin" />
-                </motion.form>
+                <motion.div
+                    className="inputCard"
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={cardVariants}
+                    transition={pageTransition}
+                >
+                    <motion.form onSubmit={handleSubmit(onSubmit)}>
+                        <h3>Enter Inital Word</h3>
+                        <motion.input
+                            name="initalWord"
+                            ref={register}
+                            placeholder="Inital"
+                            className="typed"
+                        />
+                        <h3>Enter Final Word</h3>
+                        <motion.input
+                            name="finalWord"
+                            ref={register}
+                            placeholder="Final"
+                            className="typed"
+                        />
+
+                        <motion.input type="submit" id="submit" value="Begin" />
+                    </motion.form>
+                </motion.div>
+                <DictionaryCard
+                    handleSubmit={handleWordClick}
+                    title={"Hello"}
+                    defn={[
+                        "yes ",
+                        "hi ",
+                        "boobs",
+                        "420 ",
+                        "good ",
+                        "dipshit ",
+                        "fuckass ",
+                        "shitter ",
+                        "headass ",
+                        "dong ",
+                    ]}
+                />
             </motion.div>
-            <DictionaryCard
-                handleSubmit={handleWordClick}
-                title={"Hello"}
-                defn={[
-                    "yes ",
-                    "hi ",
-                    "boobs",
-                    "420 ",
-                    "good ",
-                    "dipshit ",
-                    "fuckass ",
-                    "shitter ",
-                    "headass ",
-                    "dong ",
-                ]}
-            />
         </>
     );
 };

@@ -8,10 +8,15 @@
     border-radius: 20px;
     width: 100vw;
     top: 0px;
+    align-items: center;
 }
 
 .links {
     font-family: "Nunito Sans", sans-serif;
     color: #888888;
     text-decoration: none;
+}
+
+.links:hover {
+    text-decoration: underline;
 }

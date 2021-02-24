@@ -9,7 +9,7 @@ const DictionaryCard = ({ clickHandle, title, defn }) => {
     console.log(title, defn);
     return (
         <motion.div className="dictionaryCardContainer">
-            <h3>{title}</h3>
+            <h3 className="cardTitle">{title}</h3>
             <p className="definition">
                 {defn.map((word) => {
                     return (

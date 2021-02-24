@@ -1,0 +1,25 @@
+.HTPtitle {
+    font-family: "Yantramanav";
+    margin-left: 50vw;
+    transform: translate(-80px);
+    letter-spacing: 0.05em;
+    font-weight: 100;
+}
+
+.HowToPlay p {
+    font-family: "Yantramanav";
+    text-justify: inter-word;
+}
+
+.HowToPlay {
+    margin-top: 50px;
+}
+
+.textBlock {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 20px;
+}
