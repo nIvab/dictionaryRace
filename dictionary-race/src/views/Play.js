@@ -1,36 +1,89 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import Popup from "reactjs-popup";
 
 //Components
 import DictionaryCard from "../components/dictionaryCard/DictionaryCard";
-
+import CircleThingy from "../components/circleThingy/CircleThingy";
 import pageVariants, {
     pageTransition,
     cardVariants,
 } from "../utilities/pageVariants";
 
-//components
-import CircleThingy from "../components/circleThingy/CircleThingy";
+import dictionaryAPIcall from "../utilities/dictionaryAPIcall";
 
 import "./Play.css";
 
 const Play = () => {
+    const [wordArr, setWordArr] = useState([]);
+    const [wordDefn, setWordDefn] = useState([]);
+    const [finalWord, setFinalWord] = useState("");
+    const [endgame, setEndgame] = useState(false);
+
+    // react hook form implementation
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
+
+    const onSubmit = async (data) => {
+        data = data.initalWord;
+        console.log("what the hell", data);
+        console.log("onSubmit Called");
+
+        // Ensure that WordArr is updated
+        let temp = wordArr;
+        temp.push(data);
+        setWordArr(temp);
+
+        // Generate definitions for Dictionary Card
+
+        let definitions = await dictionaryAPIcall(data);
+        let temp2 = await wordDefn;
+        let splitted = await definitions.map((defn) => {
+            return defn.split(" ");
+        });
+        await temp2.push({
+            word: data,
+            definition: splitted,
+        });
+        await setWordDefn(temp2);
+        await console.log("THE OBJECTS", wordDefn);
     };
 
-    const [gameArr, setGameArr] = useState([]);
+    const handleWordClick = async (data) => {
+        console.log("onSubmit Called");
 
-    const handleWordClick = (word) => {
-        let temp = gameArr;
-        temp.push(word);
-        setGameArr(temp);
+        // Ensure that WordArr is updated
+        let temp = wordArr;
+        temp.push(data.initalWord);
+        setWordArr(temp);
+
+        // check if game over
+        if (wordArr[wordArr.length - 1] == finalWord) {
+            setEndgame(true);
+        }
+        // Generate definitions for Dictionary Card
+
+        let definitions = await dictionaryAPIcall(data.initalWord);
+        let temp2 = await wordDefn;
+        let splitted = await definitions.map((defn) => {
+            return defn.split(" ");
+        });
+        await temp2.push({
+            word: data.initalWord,
+            definition: splitted,
+        });
+        await setWordDefn(temp2);
+        await console.log("THE OBJECTS", wordDefn);
     };
 
     return (
         <>
+            <Popup trigger={endgame}>
+                <div>
+                    Congrats, you have solved the run from {wordArr[0]} to
+                    {wordArr[wordArr.length - 1]} in {wordArr.length} words!
+                </div>
+            </Popup>
             <motion.div
                 className="Play"
                 initial="initial"
@@ -69,22 +122,18 @@ const Play = () => {
                         <motion.input type="submit" id="submit" value="Begin" />
                     </motion.form>
                 </motion.div>
-                <DictionaryCard
-                    handleSubmit={handleWordClick}
-                    title={"Hello"}
-                    defn={[
-                        "yes ",
-                        "hi ",
-                        "boobs",
-                        "420 ",
-                        "good ",
-                        "dipshit ",
-                        "fuckass ",
-                        "shitter ",
-                        "headass ",
-                        "dong ",
-                    ]}
-                />
+                {wordDefn.map((obj) => {
+                    // take array and map it to dictionary card
+                    let word = obj.word;
+                    let definitions = obj.definition;
+                    return (
+                        <DictionaryCard
+                            clickHandle={handleWordClick}
+                            title={word}
+                            defn={definitions}
+                        />
+                    );
+                })}
             </motion.div>
         </>
     );
