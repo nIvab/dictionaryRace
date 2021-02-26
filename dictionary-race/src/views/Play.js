@@ -25,7 +25,11 @@ const Play = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = async (data) => {
-        data = data.initalWord;
+        //set Final word
+        setFinalWord(data.finalWord.replace(/[^A-Za-z0-9]/g, ""));
+
+        //now we only deal with inital word
+        data = data.initalWord.replace(/[^A-Za-z0-9]/g, "");
         console.log("what the hell", data);
         console.log("onSubmit Called");
 
@@ -50,11 +54,11 @@ const Play = () => {
     };
 
     const handleWordClick = async (data) => {
-        console.log("onSubmit Called");
-
+        console.log("onSubmit Called", data);
+        data = data.replace(/[^A-Za-z0-9]/g, "");
         // Ensure that WordArr is updated
         let temp = wordArr;
-        temp.push(data.initalWord);
+        temp.push(data);
         setWordArr(temp);
 
         // check if game over
@@ -63,19 +67,19 @@ const Play = () => {
         }
         // Generate definitions for Dictionary Card
 
-        let definitions = await dictionaryAPIcall(data.initalWord);
+        let definitions = await dictionaryAPIcall(data);
         let temp2 = await wordDefn;
         let splitted = await definitions.map((defn) => {
             return defn.split(" ");
         });
-        await temp2.push({
-            word: data.initalWord,
-            definition: splitted,
-        });
-        await setWordDefn(temp2);
+        // await temp2.push({
+        //     word: data,
+        //     definition: splitted,
+        // });
+        await setWordDefn([...wordDefn, { word: data, definition: splitted }]);
         await console.log("THE OBJECTS", wordDefn);
     };
-
+    useEffect(() => {}, [wordDefn]);
     return (
         <>
             <Popup trigger={endgame}>
