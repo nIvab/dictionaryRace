@@ -68,21 +68,26 @@ const Play = () => {
         // Generate definitions for Dictionary Card
 
         let definitions = await dictionaryAPIcall(data);
-        let temp2 = await wordDefn;
         let splitted = await definitions.map((defn) => {
             return defn.split(" ");
         });
-        // await temp2.push({
-        //     word: data,
-        //     definition: splitted,
-        // });
+
         await setWordDefn([...wordDefn, { word: data, definition: splitted }]);
-        await console.log("THE OBJECTS", wordDefn);
+        await console.log("THE OBJECTS CLICKEEDEDDDDED", wordDefn);
     };
-    useEffect(() => {}, [wordDefn]);
+    const onDelete = (word, defn) => {
+        let temp = wordArr;
+        let temp2 = wordDefn;
+
+        temp.slice(0, wordArr.indexOf(word));
+        setWordArr([...temp]);
+
+        temp2.slice(0, wordDefn.indexOf({ word: word, definition: defn }));
+        setWordDefn([...temp2]);
+    };
     return (
         <>
-            <Popup trigger={endgame}>
+            <Popup trigger={endgame} modal nested>
                 <div>
                     Congrats, you have solved the run from {wordArr[0]} to
                     {wordArr[wordArr.length - 1]} in {wordArr.length} words!
@@ -130,13 +135,32 @@ const Play = () => {
                     // take array and map it to dictionary card
                     let word = obj.word;
                     let definitions = obj.definition;
-                    return (
-                        <DictionaryCard
-                            clickHandle={handleWordClick}
-                            title={word}
-                            defn={definitions}
-                        />
-                    );
+                    if (
+                        wordDefn.indexOf(obj) === wordDefn.length - 1 &&
+                        endgame === false
+                    ) {
+                        return (
+                            <DictionaryCard
+                                key={obj.title + obj.definition}
+                                clickHandle={handleWordClick}
+                                title={word}
+                                defn={definitions}
+                                clickable={true}
+                                delCard={onDelete}
+                            />
+                        );
+                    } else {
+                        return (
+                            <DictionaryCard
+                                key={obj.title + obj.definition}
+                                clickHandle={handleWordClick}
+                                title={word}
+                                defn={definitions}
+                                clickable={false}
+                                delCard={onDelete}
+                            />
+                        );
+                    }
                 })}
             </motion.div>
         </>
@@ -144,3 +168,8 @@ const Play = () => {
 };
 
 export default Play;
+
+// {
+//     title: word
+//     definition: defn
+// }
