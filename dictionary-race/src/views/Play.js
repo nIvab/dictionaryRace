@@ -6,6 +6,7 @@ import Popup from "reactjs-popup";
 //Components
 import DictionaryCard from "../components/dictionaryCard/DictionaryCard";
 import CircleThingy from "../components/circleThingy/CircleThingy";
+import WinningCard from "../components/winningCard/WinningCard";
 import pageVariants, {
     pageTransition,
     cardVariants,
@@ -92,12 +93,6 @@ const Play = () => {
     };
     return (
         <>
-            <Popup trigger={endgame} modal nested>
-                <div>
-                    Congrats, you have solved the run from {wordArr[0]} to
-                    {wordArr[wordArr.length - 1]} in {wordArr.length} words!
-                </div>
-            </Popup>
             <motion.div
                 className="Play"
                 initial="initial"
@@ -108,7 +103,6 @@ const Play = () => {
             >
                 <h1>Play</h1>
                 <CircleThingy text={"Hello!"} />
-
                 <motion.div
                     className="inputCard"
                     initial="initial"
@@ -167,6 +161,7 @@ const Play = () => {
                         );
                     }
                 })}
+                {endgame && <WinningCard arrOfWords={wordArr} />}
             </motion.div>
         </>
     );

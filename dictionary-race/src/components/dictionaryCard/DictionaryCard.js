@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import dictionaryAPIcall from "../../utilities/dictionaryAPIcall";
 import "./DictionaryCard.css";
 import pageVariants, {
     pageTransition,

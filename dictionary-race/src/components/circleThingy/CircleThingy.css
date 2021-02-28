@@ -1,7 +1,7 @@
 .outerCircle {
     display: flex;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     background-color: #ff8b8b;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -11,8 +11,8 @@
     margin-top: 40px;
 }
 .innerCircle {
-    height: 125px;
-    width: 125px;
+    height: 175px;
+    width: 175px;
     border-radius: 50%;
     background-color: #ffefef;
     box-shadow: -2px 5px 4px rgba(0, 0, 0, 0.25);
@@ -20,7 +20,20 @@
 }
 
 .text {
+    margin-top: 55px;
     font-family: "Yantramanav";
-    font-size: 36px;
+    font-size: 30px;
     color: #948e8e;
+    margin-bottom: 0px;
+    font-style: italic;
+}
+
+.text2 {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-family: "Yantramanav";
+    font-size: 30px;
+    color: #948e8e;
+    font-style: italic;
+    text-shadow: -3px 0 2px rgb(206, 205, 205);
 }

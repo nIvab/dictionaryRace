@@ -56,9 +56,10 @@ h3 {
 }
 
 h1 {
+    margin-top: 50px;
     font-family: "Yantramanav";
     margin-left: 50vw;
-    transform: translate(-20px);
+    transform: translate(-30px);
     letter-spacing: 0.05em;
     font-weight: 100;
 }
