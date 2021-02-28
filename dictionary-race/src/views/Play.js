@@ -79,11 +79,16 @@ const Play = () => {
         let temp = wordArr;
         let temp2 = wordDefn;
 
-        temp.slice(0, wordArr.indexOf(word));
+        temp = temp.slice(0, wordArr.indexOf(word) - 1);
         setWordArr([...temp]);
 
-        temp2.slice(0, wordDefn.indexOf({ word: word, definition: defn }));
+        temp2 = temp2.slice(
+            0,
+            wordDefn.indexOf({ word: word, definition: defn }) - 1
+        );
         setWordDefn([...temp2]);
+        console.log("DEWFNS", defn);
+        console.log("AFTER DELETE", wordDefn);
     };
     return (
         <>
