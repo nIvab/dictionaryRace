@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import pageVariants, {
     pageTransition,
     childVariants,
-} from "../utilities/pageVariants";
+} from "../../utilities/pageVariants";
 
 const Menu = () => {
     return (

@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import Popup from "reactjs-popup";
 
 //Components
-import DictionaryCard from "../components/dictionaryCard/DictionaryCard";
-import CircleThingy from "../components/circleThingy/CircleThingy";
-import WinningCard from "../components/winningCard/WinningCard";
+import DictionaryCard from "../../components/dictionaryCard/DictionaryCard";
+import CircleThingy from "../../components/circleThingy/CircleThingy";
+import WinningCard from "../../components/winningCard/WinningCard";
 import pageVariants, {
     pageTransition,
     cardVariants,
-} from "../utilities/pageVariants";
+} from "../../utilities/pageVariants";
 
-import dictionaryAPIcall from "../utilities/dictionaryAPIcall";
+import dictionaryAPIcall from "../../utilities/dictionaryAPIcall";
+import UserContext from "../../UserContext";
 
 import "./Play.css";
 
 const Play = () => {
+    const { authenticated, setAuth } = useContext(UserContext);
     const [wordArr, setWordArr] = useState([]);
     const [wordDefn, setWordDefn] = useState([]);
     const [finalWord, setFinalWord] = useState("");

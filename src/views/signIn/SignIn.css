@@ -1,0 +1,40 @@
+.SignIn {
+    display: block;
+    background-color: whitesmoke;
+    font-family: "Yantramanav";
+    width: 200px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.submit {
+    background-color: #ccefff;
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.submit:active {
+    box-shadow: none;
+    background-color: #83d7fd;
+}
+
+.submit:hover {
+    background-color: #83d7fd;
+}
+
+@media (min-width: 600px) {
+    .SignIn {
+        width: 400px;
+    }
+}
+
+.redirectSignUp {
+    color: grey;
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 const pageVariants = {
     initial: {
         opacity: 0,
-        x: "50vw",
+        x: "10vw",
         scale: 0.8,
     },
     in: {
@@ -11,7 +11,7 @@ const pageVariants = {
     },
     out: {
         opacity: 0,
-        x: "-50vw",
+        x: "-10vw",
         scale: 1,
     },
 };
@@ -19,7 +19,7 @@ const pageVariants = {
 const pageTransition = {
     x: { type: "tween" },
     ease: "anticipate",
-    staggerChildren: 0.3,
+    staggerChildren: 0.4,
     staggerDirection: 1,
 };
 
