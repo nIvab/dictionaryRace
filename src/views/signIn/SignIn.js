@@ -8,11 +8,15 @@ import UserContext from "../../UserContext";
 import { Redirect, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./SignIn.css";
+import { login } from "../../utilities/auth/auth";
 
 const SignIn = () => {
     const { user, setUser } = useContext(UserContext);
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {};
+    const onSubmitLogin = (data) => {
+        console.log(data);
+        login(data.email, data.passwordField);
+    };
 
     if (user !== null) {
         <Redirect to="/menu" />;
@@ -29,7 +33,7 @@ const SignIn = () => {
                     transition={pageTransition}
                 >
                     <motion.form
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={handleSubmit(onSubmitLogin)}
                         className="SignInForm"
                         initial="initial"
                         animate="in"
@@ -75,6 +79,7 @@ const SignIn = () => {
                             className="PasswordField"
                             initial="initial"
                             animate="in"
+                            type="password"
                             exit="out"
                             variants={childVariants}
                             transition={pageTransition}
@@ -83,7 +88,7 @@ const SignIn = () => {
                             name="submitButton"
                             className="submit"
                             type="submit"
-                            onClick={handleSubmit(onSubmit)}
+                            onClick={handleSubmit(onSubmitLogin)}
                         />
                     </motion.form>
                     <span className="redirectSignUp">

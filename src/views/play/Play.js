@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import Popup from "reactjs-popup";
 
 //Components
 import DictionaryCard from "../../components/dictionaryCard/DictionaryCard";
@@ -18,7 +17,7 @@ import UserContext from "../../UserContext";
 import "./Play.css";
 
 const Play = () => {
-    const { authenticated, setAuth } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [wordArr, setWordArr] = useState([]);
     const [wordDefn, setWordDefn] = useState([]);
     const [finalWord, setFinalWord] = useState("");
@@ -33,8 +32,6 @@ const Play = () => {
 
         //now we only deal with inital word
         data = data.initalWord.replace(/[^A-Za-z0-9]/g, "");
-        console.log("what the hell", data);
-        console.log("onSubmit Called");
 
         // Ensure that WordArr is updated
         let temp = wordArr;
@@ -53,7 +50,6 @@ const Play = () => {
             definition: splitted,
         });
         await setWordDefn(temp2);
-        await console.log("THE OBJECTS", wordDefn);
     };
 
     const handleWordClick = async (data) => {
@@ -76,8 +72,8 @@ const Play = () => {
         });
 
         await setWordDefn([...wordDefn, { word: data, definition: splitted }]);
-        await console.log("THE OBJECTS CLICKEEDEDDDDED", wordDefn);
     };
+
     const onDelete = (word, defn) => {
         let temp = wordArr;
         let temp2 = wordDefn;
@@ -90,9 +86,8 @@ const Play = () => {
             wordDefn.indexOf({ word: word, definition: defn }) - 1
         );
         setWordDefn([...temp2]);
-        console.log("DEWFNS", defn);
-        console.log("AFTER DELETE", wordDefn);
     };
+
     return (
         <>
             <motion.div

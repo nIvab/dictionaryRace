@@ -8,7 +8,7 @@ const CircleThingy = (text) => {
                 {" "}
                 <p className="text"> Dictionary </p>{" "}
                 <p className="text2">
-                    <i class="fas fa-running"></i> Run
+                    <i className="fas fa-running"></i> Run
                 </p>
             </div>
         </div>

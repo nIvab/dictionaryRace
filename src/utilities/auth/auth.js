@@ -1,27 +1,28 @@
 import Axios from "axios";
 
-const register = async (name, pass) => {
+const signUp = async (name, email, pass) => {
     Axios({
         method: "POST",
         data: {
             username: name,
+            email: email,
             password: pass,
         },
         withCredentials: true,
         url: "http://localhost:4000/api/auth/register",
-    }).then((res) => console.log(res));
+    }).then((res) => console.log("sign up successful", res));
 };
 
-const login = async (name, pass) => {
+const login = async (email, pass) => {
     Axios({
         method: "POST",
         data: {
-            username: name,
+            email: email,
             password: pass,
         },
         withCredentials: true,
         url: "http://localhost:4000/api/auth/login",
-    }).then((res) => console.log(res));
+    }).then((res) => console.log("login successful", res));
 };
 
 const getUser = async ({ data, setData }) => {
@@ -35,5 +36,5 @@ const getUser = async ({ data, setData }) => {
     });
 };
 
-export default register;
+export default signUp;
 export { login, getUser };

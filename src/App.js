@@ -14,6 +14,7 @@ import Play from "./views/play/Play";
 import SignIn from "./views/signIn/SignIn";
 import HowToPlay from "./views/howToPlay/HowToPlay";
 import SignUp from "./views/signUp/SignUp";
+import ThankYou from "./views/thankYou/ThankYou";
 
 const App = () => {
     const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
                         <Route path="/how-to-play" component={HowToPlay} />
                         <Route path="/sign-in" component={SignIn} />
                         <Route path="/sign-up" component={SignUp} />
+                        <Route path="/thank-you" component={ThankYou} />
                     </UserContext.Provider>
                 </Switch>
             </AnimatePresence>
